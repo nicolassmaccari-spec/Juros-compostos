@@ -2481,7 +2481,7 @@ var qrcode = function() {
 <script>
 (function(){
 "use strict";
-var LINK_PADRAO = "https://claude.ai/artifact/EKoGN5bgmt89MCtgfHoop1";
+var LINK_PADRAO = "https://nicolassmaccari-spec.github.io/Juros-compostos/";
 var TOTAL = 9;
 var NTFY = "https://ntfy.sh/juroscomp-79sw5e56zzz";
 var brl = new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
@@ -2841,7 +2841,7 @@ function conectarAoVivo(){
 
 function telao(){
   stop();
-  var link=store("link")||LINK_PADRAO;
+  var link=store("linkqr")||LINK_PADRAO;
   root.innerHTML='<div class="tv">'+
    '<section>'+
     '<h1>Você aceitaria R$ 1 milhão ou 1 centavo?</h1>'+
@@ -2876,7 +2876,7 @@ function telao(){
   document.getElementById("zera").onclick=function(){if(confirm("Apagar todo o ranking?")){store("zeradoEm",String(Date.now()));salvarRanking([]);store("removidos","{}");desenharRanking();}};
   document.getElementById("sair").onclick=function(){clearInterval(timer);timer=null;try{es&&es.close();}catch(e){}store("modo","jogo");state.step=0;render();};
   document.getElementById("cfg").onclick=function(){document.getElementById("ur").classList.toggle("on");};
-  document.getElementById("us").onclick=function(){var v=document.getElementById("ul").value.trim();if(v){store("link",v);desenharQR(v);document.getElementById("ur").classList.remove("on");}};
+  document.getElementById("us").onclick=function(){var v=document.getElementById("ul").value.trim();if(v){store("linkqr",v);desenharQR(v);document.getElementById("ur").classList.remove("on");}};
 }
 function desenharQR(link){
   var box=document.getElementById("qr");
